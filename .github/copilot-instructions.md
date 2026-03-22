@@ -29,7 +29,7 @@ npm run build       # production build (runs tsc then vite build)
 
 ## Key Conventions
 
-- **Recipe IDs** are kebab-case slugs derived from the title (e.g. `chicken-stir-fry`). The backend does case-insensitive matching on lookups.
+- **Recipe IDs** are numeric integers (e.g. `1`, `2`, `3`). The backend matches by integer equality; the frontend should use these numeric IDs in URLs (e.g. `/recipes/1`).
 - **Data layer**: All recipe data is defined in `backend/Models/Recipe.cs` inside the static `RecipeStore` class. To add or modify recipes, edit that file — there is no database migration step.
 - **Shared types**: The frontend mirrors the backend `Recipe` shape in `frontend/src/types.ts`. Keep these in sync when changing the API contract.
 - **Frontend routing**: Routes are defined in `frontend/src/main.tsx`. `App.tsx` is a layout shell that renders child routes via `<Outlet />`. Page components live in `frontend/src/pages/`.
